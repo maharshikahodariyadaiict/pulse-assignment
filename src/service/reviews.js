@@ -4,7 +4,7 @@ import { DATA_SOURCE } from '../context/data-source/index.js';
 import * as capterra from './capterra.js';
 import { CATEGORIES } from '../context/data-source/capterra-categories.js';
 import { MAPPER_CAPTERRA } from '../context/data-source/capterra.js';
-import { PAGE_THRESHOLD } from '../constants/index.js';
+import { PAGE_THRESHOLD, SECRET_CREDENTIAL } from '../constants/index.js';
 
 const fetchHTMLPageWithFreshProxy = async (targetUrl, pageIndex) => {
     try {
@@ -13,7 +13,7 @@ const fetchHTMLPageWithFreshProxy = async (targetUrl, pageIndex) => {
             url += '&page=' + pageIndex;
         }
         console.log(">>>> fetchHTMLPageWithFreshProxy", url);
-        const agent = new HttpsProxyAgent(`<SECRET_CREDENTIALS>`);
+        const agent = new HttpsProxyAgent(SECRET_CREDENTIAL);
         const response = await fetch(url, { agent });
         const html = await response.text();
         return html;
