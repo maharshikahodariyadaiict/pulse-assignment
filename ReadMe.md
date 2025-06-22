@@ -12,6 +12,9 @@ cd <path>/web-scraper
 
 npm install
 ```
+
+Meanwhile, update proxy-server variable **SECRET_CREDENTIAL** constant in `web-scraper/src/constants/index.js` file. Value shared via email.
+
 After hitting below command, express server will start on PORT 3000.
 ```bash
 npm run start
